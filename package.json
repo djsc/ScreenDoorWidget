@@ -7,5 +7,5 @@
     "start": "python -m http.server 8000"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
