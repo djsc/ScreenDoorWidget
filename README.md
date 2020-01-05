@@ -2,8 +2,6 @@
 
 This is a web widget that displays the last post on a firebase account and how long ago it was posted.
 
-**NOTE: THE FIREBASE RULES BELOW ALLOW ANYONE TO READ YOUR DATA. IT ONLY PROTECTS AGAINST WRITING**
-
 ## Firebase Setup:
 * Go to https://console.firebase.google.com/
 * Add a project
@@ -13,6 +11,9 @@ This is a web widget that displays the last post on a firebase account and how l
 * Dashboard -> Database -> Create database (locked mode) #This creates a Firestore database which we won't be using
 * Every time you go to the databse tab from the dashboard, select Realtime Database at the top instead of Firestore
 * Dashboard -> Database  -> Rules -> Publish the following rules:
+
+**NOTE: THE FIREBASE RULES BELOW ALLOW ANYONE TO READ YOUR DATA. IT ONLY PROTECTS AGAINST WRITING**
+
 ```
 {
   "rules": {
