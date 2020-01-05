@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/firebasejs/ https://*.firebaseio.com">
+
+    <style type="text/css">
+        .sdoor #display {
+            width: 220px;
+            height: 75px;
+            background: #004ce7;
+            border-style: solid;
+            border-width: 10px 20px 10px 20px;
+            border-color: black;
+            padding: 2px 0px 2px 0px;
+        }
+
+        .sdoor #display p {
+            color: #a6b9d7;
+            font-size: 17px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin: 0;
+
+            /* ideal style */
+            padding: 0px 0px 0px 8px;
+            text-align: left;
+
+            /* alternative style */
+            /* padding: 0;
+                text-align: center; */
+        }
+
+        .sdoor #timestamp p {
+            margin: 0;
+
+            /* ideal style */
+            padding: 0px 0px 0px 8px;
+            text-align: left;
+
+            /* alternative style */
+            /* padding: 0;
+                text-align: center;
+                height: 20px; */
+        }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+    <script src="sdoor.js"></script>
+</head>
+
+<body>
+    <div class="sdoor">
+        <div id="display">
+            <p id="sdoorline1"></p>
+            <p id="sdoorline2"></p>
+            <p id="sdoorline3"></p>
+            <p id="sdoorline4"></p>
+        </div>
+        <div id="timestamp">
+            <p id="sdoortimestamp"></p>
+        </div>
+    </div>
+</body>
+
+</html>
