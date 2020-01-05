@@ -1,4 +1,4 @@
-# sdoorwidget
+# ScreenDoorWidget
 
 This is a web widget that displays the last post on a firebase account and how long ago it was posted.
 
