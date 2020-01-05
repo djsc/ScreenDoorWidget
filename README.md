@@ -1,6 +1,6 @@
 # ScreenDoorWidget
 
-This is a web widget that displays the last post on a firebase account and how long ago it was posted.
+This is a Javascript widget that displays the last post on a firebase account and how long ago it was posted. The messages can be posted via an Android/iOS app (see [ScreenDoor](https://github.com/djsc/ScreenDoor/)).
 
 ## Firebase Setup:
 * Go to https://console.firebase.google.com/
