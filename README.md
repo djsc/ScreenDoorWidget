@@ -1,33 +1,32 @@
 # ScreenDoorWidget
 
-This is a Javascript widget that displays the last post on a firebase account and how long ago it was posted. The messages can be posted via an Android/iOS app (see [ScreenDoor](https://github.com/djsc/ScreenDoor/)).
+This is a Javascript widget that displays the last post on a Firebase account and how long ago it was posted. The messages can be posted via an Android/iOS app (see [ScreenDoor](https://github.com/djsc/ScreenDoor/)).
 
 ## Firebase Setup:
 * Go to https://console.firebase.google.com/
 * Add a project
-* Dashboard -> Project settings -> Add Firebase to your web app. **Note the fields in between the curly braces for later**
+* Add an app to the project: Dashboard -> Project settings -> General -> Add App -> Web. **Note the firebaseConfig for later**
 * Dashboard -> Authentication -> Sign in method -> Email/Password -> Enable
 * Dashboard -> Authentication -> Users -> Add user -> **Note username and password for later**
-* Dashboard -> Database -> Create database (locked mode) #This creates a Firestore database which we won't be using
-* Every time you go to the databse tab from the dashboard, select Realtime Database at the top instead of Firestore
-* Dashboard -> Database  -> Rules -> Publish the following rules:
+* Dashboard -> Firestore Database -> Create database (locked mode) #This creates a Firestore database which we won't be using
+* Dashboard -> Realtime Database  -> Rules -> Publish the following rules:
 
-**NOTE: THE FIREBASE RULES BELOW ALLOW ANYONE TO READ YOUR DATA. IT ONLY PROTECTS AGAINST WRITING**
+* **NOTE: THE FIREBASE RULES BELOW ALLOW ANYONE TO READ YOUR DATA DUE TO ```".read": "true"```. IT ONLY PROTECTS AGAINST WRITING**
 
 ```
 {
   "rules": {
     "users": {
       "$uid": {
-        ".read": "true",
+        ".read": "$uid === auth.uid",
         ".write": "$uid === auth.uid",
         "posts": {
         ".indexOn": "timePosted",
           "$postID": {
           	".validate": "newData.hasChildren(['text', 'timePosted', 'uuid']) &&
-          	    newData.child('text').isString() &&
-                    newData.child('timePosted').isNumber() &&
-                    newData.child('uuid').isString()"
+                newData.child('text').isString() &&
+                newData.child('timePosted').isNumber() &&
+                newData.child('uuid').isString()"
           }
         },
         "lastHeartbeat": {
@@ -47,5 +46,5 @@ This is a Javascript widget that displays the last post on a firebase account an
 
 ## Testing on local web server
 * Install python 3
-* Start the web server: python -m http.server 8000
+* Start the web server: ```python -m http.server 8000```
 * Open up http://localhost:8000/ in your web browser
