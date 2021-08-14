@@ -18,7 +18,7 @@ This is a Javascript widget that displays the last post on a Firebase account an
   "rules": {
     "users": {
       "$uid": {
-        ".read": "$uid === auth.uid",
+        ".read": "true",
         ".write": "$uid === auth.uid",
         "posts": {
         ".indexOn": "timePosted",
